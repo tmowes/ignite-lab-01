@@ -10,36 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Customer {
-  id String @id @default(uuid())
-  // authUserId String? @unique
-  // purchases Purchase[]
+model Student {
+  id         String  @id @default(uuid())
+  authUserId String? @unique
+
+  enrollments Enrollment[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
 
-// model Product {
-//   id String @id @default(uuid())
-//   title String
-//   slug  String @unique
-//   purchasedOn Purchase[]
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @default(now()) @updatedAt
-// }
+model Course {
+  id    String @id @default(uuid())
+  title String
+  slug  String @unique
 
-// enum PurchaseStatus {
-//   PENDING
-//   APPROVED
-//   FAILED
-// }
+  enrolledOn Enrollment[]
 
-// model Purchase {
-//   id String @id @default(uuid())
-//   status PurchaseStatus @default(PENDING)
-//   customer   Customer @relation(fields: [customerId], references: [id])
-//   customerId String
-//   product   Product @relation(fields: [productId], references: [id])
-//   productId String
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @default(now()) @updatedAt
-// }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Enrollment {
+  id String @id @default(uuid())
+
+  student   Student @relation(fields: [studentId], references: [id])
+  studentId String
+
+  course   Course @relation(fields: [courseId], references: [id])
+  courseId String
+
+  canceledAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
+}

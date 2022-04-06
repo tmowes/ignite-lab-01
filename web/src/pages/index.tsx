@@ -1,9 +1,14 @@
 import { GetServerSideProps } from 'next'
 
-import { getSession } from '@auth0/nextjs-auth0'
+import { getAccessToken, getSession } from '@auth0/nextjs-auth0'
 
 export default function Home() {
   return null
+  // return (
+  //   <div>
+  //     <h1>logado</h1>
+  //   </div>
+  // )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
@@ -27,4 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
       permanent: false,
     },
   }
+  // return {
+  //   props: {},
+  // }
 }
