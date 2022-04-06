@@ -136,7 +136,7 @@
           ],
           "module",
           [
-            "/^@(assets|common|components|constants|contexts|hooks|mocks|pages|routes|services|styles|utils|shared|store)/",
+            "/^@(assets|common|components|constants|contexts|hooks|mocks|pages|database|routes|http|services|styles|utils|shared|store)/",
             "/^~/"
           ],
           [
