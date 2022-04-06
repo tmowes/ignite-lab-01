@@ -6,12 +6,6 @@ export interface AuthUser {
 }
 
 export const CurrentUser = createParamDecorator(
-  (data: unknown, context: ExecutionContext): AuthUser => {
-    const ctx = GqlExecutionContext.create(context)
-    const { req } = ctx.getContext()
-
-    console.log(req.user)
-
-    return req.user
-  },
+  (data: unknown, context: ExecutionContext): AuthUser =>
+    GqlExecutionContext.create(context).getContext().req.user,
 )

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import slugify from 'slugify'
 
-import { PrismaService } from '../database/prisma/prisma.service'
+import { PrismaService } from '@database/prisma/prisma.service'
 
 interface CreateProductParams {
   title: string
