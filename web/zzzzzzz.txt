@@ -1,0 +1,7 @@
+yarn add @apollo/client graphql@15 next-http-proxy-middleware
+
+
+yarn add -D @graphql-codegen/cli @graphql-codegen/import-types-preset @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo autoprefixer graphql-codegen-apollo-next-ssr postcss tailwindcss
+
+
+cd ~/development/ignite-lab/lab-01
